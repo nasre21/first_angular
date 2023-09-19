@@ -13,6 +13,7 @@ export class AppComponent {
   title = 'Dia 4 del reto';
   selection !: string;
   url = 'https://cdn.pixabay.com/photo/2023/09/04/06/59/dog-8232158_1280.jpg';
+  critertia = "";
 
 
   onCityClicked(city: string): void{
