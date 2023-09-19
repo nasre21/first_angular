@@ -6,15 +6,13 @@
 
     </div>
     <div class="col-md-8">
-      <ul *ngFor="let city of cities">
-        <li
-          (click)="onCityClicked(city)"
-          [ngClass]="{ 'alert alert-info': city === selection }"
-        >
-          {{ city }}
-        </li>
-      </ul>
+      
+    <ul>
+        <app-cities *ngFor="let city of cities"  (cityClickEvent)="onCityClicked($event)" [city]="city" [selection]="selection"></app-cities>
+    </ul>
 
+    <input type="text" (keypress)="onSearch()">
+    
     </div>
     <div class="col-md-4">
       <div *ngIf="selection">
@@ -45,3 +43,15 @@
 
 <!-- <app-button (click)="onClear()" [color]="'green'" [label]="'Clear your selection'"></app-button>
   <app-button (click)="onClear()" [color]="'orange'" [label]="'Clear your selection'"></app-button> -->
+
+
+
+
+  <!-- <ul>
+        <li *ngFor="let city of cities"
+          (click)="onCityClicked(city)"
+          [ngClass]="{ 'alert alert-info': city === selection }"
+        >
+          {{ city }}
+        </li>
+      </ul> -->
