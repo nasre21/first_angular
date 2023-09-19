@@ -1,3 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-form-new-item (newItemEvent)="addNewCity($event)" [label]="'City'" [className]="'btn-info'"></app-form-new-item>
+
+
+    </div>
+    <div class="col-md-8">
+      <ul *ngFor="let city of cities">
+        <li
+          (click)="onCityClicked(city)"
+          [ngClass]="{ 'alert alert-info': city === selection }"
+        >
+          {{ city }}
+        </li>
+      </ul>
+
+    </div>
+    <div class="col-md-4">
+      <div *ngIf="selection">
+        <p>your city is: {{ selection }}</p>
+
+        <app-button
+          (click)="onClear()"
+          [color]="'blue'"
+          [label]="'Clear your selection'"
+          [selection]="selection"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- <p>{{ title }} en domini code en angular</p>
 <p>la resta {{5-5}}</p> -->
 
@@ -6,32 +39,9 @@
 <!-- <p *ngIf="name">el nombre es:{{name}} </p>
 <input type="text" [(ngModel)]="name"> -->
 
-<ul *ngFor="let city of cities">
-  <!-- <li [ngStyle]="{'color': 'white', 'background-color':city === 'Madrid' ? 'blue' : 'green'}">{{city}}</li> -->
- <li (click)="onCityClicked(city)" [ngClass]="{'selected': city === selection}">{{ city }}</li> 
- 
-</ul>
+<!-- <li [ngStyle]="{'color': 'white', 'background-color':city === 'Madrid' ? 'blue' : 'green'}">{{city}}</li> -->
 
-<div>
-  <p *ngIf="selection"> your city is: {{ selection }}</p>
-  <!-- <button (click)="onClear()">Clear</button> -->
+<!-- <button (click)="onClear()">Clear</button> -->
 
-  <app-button (click)="onClear()" [color]="'blue'" [label]="'Clear your selection'" [selection]="selection"></app-button>
-  <!-- <app-button (click)="onClear()" [color]="'green'" [label]="'Clear your selection'"></app-button>
+<!-- <app-button (click)="onClear()" [color]="'green'" [label]="'Clear your selection'"></app-button>
   <app-button (click)="onClear()" [color]="'orange'" [label]="'Clear your selection'"></app-button> -->
-
-</div>
-
-<div class="container">
-
-
-</div>
-
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>

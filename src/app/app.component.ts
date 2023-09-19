@@ -19,6 +19,9 @@ export class AppComponent {
     this.selection = city;
   }
 
+  addNewCity(city: string): void {
+    this.cities.push(city);
+  }
   onClear(): void {
     console.log("clear");
     this.selection = "";
