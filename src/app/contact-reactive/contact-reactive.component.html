@@ -14,8 +14,9 @@
     <div class="mb-4 form-check">
         <label for="checkAdult" class="form-label">Are you over od age?</label>
         <input type="checkbox" name="checkAdult" class="form-check-input" id="checkAdult" required formControlName="checkAdult">
-        <!-- <div [hidden]="checkAdult.valid || name.pristine" class="alert alert-danger invalid-feeback">This field id required.</div> -->
-    </div>
+        <div *ngIf="contactForm.get('checkAdult')?.touched && contactForm.get('checkAdult')?.errors?.['required']"
+        class="alert alert-danger">This field is required.</div>
+      </div>
 
 
     <div class="mb-4">
@@ -33,7 +34,8 @@
     <div class="mb-4">
         <label for="comment" class="form-label">Comment</label>
         <textarea class="form-control" name="comment" id="" rows="4" formControlName="comment" placeholder="Leave a comment..." required></textarea>
-        <!-- <div [hidden]="comment.valid || name.pristine" class="alert alert-danger invalid-feeback">This field id required.</div> -->
+        <div *ngIf="contactForm.get('comment')?.touched && contactForm.get('comment')?.errors?.['required']"
+        class="alert alert-danger">This field is required.</div>
     </div>
 
     <div class=" d-grid gap-2 col-4 float-end">

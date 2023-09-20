@@ -13,17 +13,22 @@ export class ContactReactiveComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactForm = this.initForm();
-    // this.onPathValue();
+     this.onPathValue();
     // this.onSetValue();
   }
 
-  // onPathValue(): void {
-  //   this.contactForm.patchValue({ name: 'Bezael' });
-  // }
+  onPathValue(): void {
+    this.contactForm.patchValue({
+      name:'nasser'
+    });
 
-  // onSetValue(): void {
-  //   // this.contactForm.setValue({ comment: 'Hola mundo' });
-  // }
+
+  }
+  onSetValue(): void {
+    // this.contactForm.setValue({
+    //   name:'nasser'
+    // });
+  }
 
   onSubmit(): void {
     console.log('Form ->', this.contactForm.value);
