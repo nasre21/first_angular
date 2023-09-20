@@ -1,0 +1,49 @@
+<h1>Contact form 2</h1>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+
+  <div class="mb-4">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" name="name" required formControlName="name">
+    <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.errors?.['required']"
+      class="alert alert-danger">This field is required.</div>
+    <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.errors?.['minlength']"
+      class="alert alert-danger">Name must be longer than {{ contactForm.get('name')?.errors?.['minlength'].requiredLength}} characters.</div>
+  </div>
+
+    <div class="mb-4 form-check">
+        <label for="checkAdult" class="form-label">Are you over od age?</label>
+        <input type="checkbox" name="checkAdult" class="form-check-input" id="checkAdult" required formControlName="checkAdult">
+        <!-- <div [hidden]="checkAdult.valid || name.pristine" class="alert alert-danger invalid-feeback">This field id required.</div> -->
+    </div>
+
+
+    <div class="mb-4">
+        <label for="department" class="form-label">Department</label>
+        <select name="department" id="department" formControlName="department" class="form-select form-select-sm">
+            <option selected>Open this select</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Sales">Sales</option>
+            <option value="Other">Other</option>
+
+        </select>
+        <!-- <div [hidden]="department.valid || name.pristine" class="invalid-feeback alert alert-danger">This field is required.</div> -->
+    </div>
+
+    <div class="mb-4">
+        <label for="comment" class="form-label">Comment</label>
+        <textarea class="form-control" name="comment" id="" rows="4" formControlName="comment" placeholder="Leave a comment..." required></textarea>
+        <!-- <div [hidden]="comment.valid || name.pristine" class="alert alert-danger invalid-feeback">This field id required.</div> -->
+    </div>
+
+    <div class=" d-grid gap-2 col-4 float-end">
+        <button type="submit" class="btn btn-info btn-lg" [disabled]="contactForm.invalid">Send</button>
+    </div>
+
+</form>
+
+
+<pre>
+
+    {{contactForm.value | json}}
+</pre>

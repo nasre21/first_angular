@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 interface ContactForm {
 
   name: string,
@@ -15,13 +16,13 @@ interface ContactForm {
 export class ContactsComponent  {
 
   model= {
-    "name": "",
-    "checkAdult": true,
-    "department": "",
-    "comment": ""
+    name: "",
+    checkAdult: true,
+    department: "",
+    comment: ""
   }
-  onSubmit(values: any): void{
-    console.log('Submitted', values);
+  onSubmit(form: NgForm): void{
+    console.log('Submitted', form);
     alert('Submitted');
   }
 }

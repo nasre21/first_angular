@@ -13,18 +13,18 @@
 
 
     <div class="col-md-8">
-      
+
     <ul>
         <app-cities *ngFor="let city of (cities | filter:critertia)"  (cityClickEvent)="onCityClicked($event)" [city]="city" [selection]="selection"></app-cities>
     </ul>
 
     <input type="text" (keypress)="onSearch()">
-    
+
     </div>
     <!-- <p>My brithday is: {{'6/15/15, 9:03 AM' | date:'short' | uppercase}}</p> -->
     <p> {{'999' |currency}}</p>
     <p> {{'999' |currency:'EUR'}}</p>
-  
+
     <div class="col-md-4">
       <div *ngIf="selection">
         <p>your city is: {{ selection }}</p>
@@ -72,11 +72,14 @@
 
   <div class="row">
 
-    <div class="col-9">
+    <!-- <div class="col-6">
       <app-contacts></app-contacts>
+    </div> -->
+    <div class="col-6">
+      <app-contact-reactive></app-contact-reactive>
     </div>
-    <div class="col-3">Data</div>
   </div>
 </div>
+
 
 
