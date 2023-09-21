@@ -13,6 +13,9 @@ import { ContactReactiveComponent } from './contact-reactive/contact-reactive.co
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app.routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
+import { UserComponent } from './users/user/user.component';
+import { DetailsComponent } from './users/details/details.component';
+import { ListsComponent } from './users/lists/lists.component';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     ContactsComponent,
     ContactReactiveComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserComponent,
+    DetailsComponent,
+    ListsComponent
   ],
   imports: [
     BrowserModule,

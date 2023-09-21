@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 interface ContactForm {
 
@@ -13,14 +14,22 @@ interface ContactForm {
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss']
 })
-export class ContactsComponent  {
-
+export class ContactsComponent implements OnInit {
+  id!: string;
   model= {
     name: "",
     checkAdult: true,
     department: "",
     comment: ""
   }
+
+  ngOnInit(): void{
+    this.route.params.subscribe((params:Params) => {
+      this.id = params['id'];
+    });
+
+  }
+  constructor(private readonly route:ActivatedRoute) { }
   onSubmit(form: NgForm): void{
     console.log('Submitted', form);
     alert('Submitted');
