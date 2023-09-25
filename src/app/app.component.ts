@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { City, DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,27 +7,44 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  cities= ["New York", "Bilbao", "Madrid"]
-  name = "Juan";
-  title = 'Dia 4 del reto';
-  selection !: string;
+
+  cities: City[]=[];
+  selection !: City;
   url = 'https://cdn.pixabay.com/photo/2023/09/04/06/59/dog-8232158_1280.jpg';
   critertia = "";
 
+  constructor(private readonly dataSVc: DataService) { }
+  ngOnInit(): void {
+    this.dataSVc.getCities().subscribe(res=>{
+      this.cities = [...res];
+    });
 
-  onCityClicked(city: string): void{
-    console.log("this city is ->", city);
+  }
+
+  onCityClicked(city: City): void{
     this.selection = city;
   }
 
-  addNewCity(city: string): void {
-    this.cities.push(city);
+  // addNewCity(city: string): void {
+  //   this.cities.push(city);
+  // }
+
+
+
+
+  onDeleteCity(id: string): void {
+    console.log("delete city", id);
+
+
   }
   onClear(): void {
     console.log("clear");
-    this.selection = "";
+    this.selection = {
+      _id: "",
+      name: ""
+    };
 
   }
 
@@ -34,4 +52,7 @@ export class AppComponent {
     console.log("search");
   }
 
+
+
 }
+

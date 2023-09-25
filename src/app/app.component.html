@@ -17,7 +17,7 @@
     <div class="col-md-8">
 
     <ul>
-        <app-cities *ngFor="let city of (cities | filter:critertia)"  (cityClickEvent)="onCityClicked($event)" [city]="city" [selection]="selection"></app-cities>
+        <app-cities (cityDeleteEvent)="onDeleteCity($event)" *ngFor="let city of (cities | filter:critertia)"  (cityClickEvent)="onCityClicked($event)" [city]="city" [selection]="selection"></app-cities>
     </ul>
 
     <input type="text" (keypress)="onSearch()">

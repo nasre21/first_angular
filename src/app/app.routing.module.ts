@@ -9,7 +9,8 @@ import { ListsComponent } from './users/lists/lists.component';
 import { DetailsComponent } from './users/details/details.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'contact-reactive', component: ContactReactiveComponent },
+  // { path: 'contact-reactive', component: ContactReactiveComponent },
+  {path: 'contact-recartive', loadChildren: ()=> import('./contact-reactive/contact-reactive.module').then(m => m.ContactReactiveModule)},
   { path: 'contact-template/:id', component: ContactsComponent },
   { path: 'home', component: HomeComponent },
   { path: 'user', component: UserComponent , children: [

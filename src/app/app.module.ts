@@ -9,13 +9,13 @@ import { FormNewItemComponent } from './form-new-item/form-new-item.component';
 import { CitiesComponent } from './cities/cities.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { ContactsComponent } from './contacts/contacts.component';
-import { ContactReactiveComponent } from './contact-reactive/contact-reactive.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app.routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserComponent } from './users/user/user.component';
 import { DetailsComponent } from './users/details/details.component';
 import { ListsComponent } from './users/lists/lists.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -26,7 +26,6 @@ import { ListsComponent } from './users/lists/lists.component';
     CitiesComponent,
     FilterPipe,
     ContactsComponent,
-    ContactReactiveComponent,
     HomeComponent,
     NavbarComponent,
     UserComponent,
@@ -37,7 +36,9 @@ import { ListsComponent } from './users/lists/lists.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
+
 
   ],
   providers: [],
