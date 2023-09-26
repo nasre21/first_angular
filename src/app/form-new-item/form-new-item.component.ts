@@ -15,6 +15,7 @@ export class FormNewItemComponent {
 
 
   @Output() newItemEvent = new EventEmitter<string>();
+  @Output() updateItemEvent = new EventEmitter<City>();
 
 
 
@@ -22,6 +23,18 @@ export class FormNewItemComponent {
     this.newItemEvent.emit(item);
   }
 
+  updateCityItem(item:City, change: string):void {
+    console.log('item',item);
+    const city: City = {
+    _id:item._id,
+      name:change,
+
+}
+
+  this.updateItemEvent.emit(city);
+
+
+  }
   counterRender(): boolean {
     console.log('Render Form',);
 

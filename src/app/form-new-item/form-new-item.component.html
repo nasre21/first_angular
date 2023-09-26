@@ -10,6 +10,9 @@
         <div class="col auto">
             <button (click)="addNewItem(newItem.value); newItem.value = ''" type="button" class="btn" [ngClass]="[className]">Add {{ label }}</button>
         </div>
+        <div class="col auto">
+          <button (click)="updateCityItem(selection, newItem.value); newItem.value = ''" type="button" class="btn" [ngClass]="[className]">Update {{ label }}</button>
+      </div>
     </div>
 </form>
 

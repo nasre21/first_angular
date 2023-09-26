@@ -27,6 +27,17 @@ export class AppComponent implements OnInit {
     this.selection = city;
   }
 
+  updateCity(city: City): void {
+    this.dataSVc.updateCity(city).subscribe(res =>{
+      const delArry = this.cities.filter(i=>i._id!== i._id);
+      this.cities = [...delArry, city];
+      this.onClear();
+
+
+
+    })
+
+  }
   addNewCity(city: string): void {
   //   this.cities.push(city);
   this.dataSVc.addCity(city).subscribe(res=>{this.cities.push(res);});
