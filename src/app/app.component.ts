@@ -10,7 +10,7 @@ import { City, DataService } from './services/data.service';
 export class AppComponent implements OnInit {
 
 
-  cities: City[]=[];
+  cities: City[] = [];
   selection !: City;
   url = 'https://cdn.pixabay.com/photo/2023/09/04/06/59/dog-8232158_1280.jpg';
   critertia = "";
@@ -27,16 +27,23 @@ export class AppComponent implements OnInit {
     this.selection = city;
   }
 
-  // addNewCity(city: string): void {
+  addNewCity(city: string): void {
   //   this.cities.push(city);
-  // }
+  this.dataSVc.addCity(city).subscribe(res=>{this.cities.push(res);});
+   }
 
 
 
 
   onDeleteCity(id: string): void {
-    console.log("delete city", id);
+    if(confirm("Are you sure you want to delete this city?")){
 
+            this.dataSVc.deleteCity(id).subscribe(()=>{
+              const delArry = this.cities.filter(c=>c._id!== id);
+              this.cities =[ ...delArry];
+              this.onClear();
+      });
+    }
 
   }
   onClear(): void {

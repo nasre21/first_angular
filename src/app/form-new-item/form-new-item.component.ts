@@ -1,5 +1,6 @@
 
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { City } from '../services/data.service';
 
 @Component({
   selector: 'app-form-new-item',
@@ -10,18 +11,20 @@ import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from 
 export class FormNewItemComponent {
   @Input() className= "btn btn-primary";
   @Input() label!: string;
+  @Input() selection!: City;
+
+
   @Output() newItemEvent = new EventEmitter<string>();
 
 
 
-  addNew(item:string):void {
-    console.log("this is item",item);
+  addNewItem(item:string):void {
     this.newItemEvent.emit(item);
   }
 
   counterRender(): boolean {
     console.log('Render Form',);
-    
+
     return true;
   }
 }

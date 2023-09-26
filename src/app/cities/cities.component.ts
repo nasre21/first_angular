@@ -9,7 +9,8 @@ import { City } from '../services/data.service';
     [ngClass]="{ 'active': city?._id === selection?._id}"
   >
     {{ city?.name | titlecase }}
-    <div (click)="onDeleteCity(city._id)" type="button" class="btn btn-danger float-end">Delete</div>
+    <button *ngIf=" city?._id === selection?._id" (click)="onDeleteCity(city._id)" type="button" class="btn btn-danger float-end">Delete</button>
+
   </li>
 </ul>
 
@@ -23,7 +24,7 @@ export class CitiesComponent{
   @Input() city!: City;
   @Input() selection!: City;
   @Output()cityClickEvent = new EventEmitter<City>();
-  @Output()cityDeleteEvent = new EventEmitter<City>();
+  @Output()cityDeleteEvent = new EventEmitter<string>();
 
   onCityClicked(city:City): void {
     //emit
@@ -36,7 +37,7 @@ export class CitiesComponent{
     return true;
   }
 
-  onDeleteCity(id:City): void {
+  onDeleteCity(id:string): void {
     //emit
     this.cityDeleteEvent.emit(id);
 

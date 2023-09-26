@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-form-new-item (newItemEvent)="addNewCity($event)" [label]="'City'" [className]="'btn-info'"></app-form-new-item>
+      <app-form-new-item (newItemEvent)="addNewCity($event)" [label]="'City'" [selection]="selection" [className]="'btn-info'"></app-form-new-item>
 
 
     </div>
@@ -28,14 +28,13 @@
     <p> {{'999' |currency:'EUR'}}</p>
 
     <div class="col-md-4">
-      <div *ngIf="selection">
-        <p>your city is: {{ selection }}</p>
+      <div *ngIf="selection?.name">
+        <p>your city is: {{ selection?.name }}</p>
 
         <app-button
           (click)="onClear()"
           [color]="'blue'"
           [label]="'Clear your selection'"
-          [selection]="selection"
         ></app-button>
       </div>
     </div>
