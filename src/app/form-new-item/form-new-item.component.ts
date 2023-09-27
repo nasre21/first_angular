@@ -30,7 +30,6 @@ export class FormNewItemComponent {
       name:change,
 
 }
-
   this.updateItemEvent.emit(city);
 
 

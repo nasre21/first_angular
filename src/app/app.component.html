@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-form-new-item (newItemEvent)="addNewCity($event)" [label]="'City'" [selection]="selection" [className]="'btn-info'"></app-form-new-item>
+      <app-form-new-item (updateItemEvent)=" updateCity($event)" (newItemEvent)="addNewCity($event)" [label]="'City'" [selection]="selection" [className]="'btn-info'"></app-form-new-item>
 
 
     </div>
