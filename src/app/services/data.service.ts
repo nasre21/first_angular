@@ -22,12 +22,13 @@ private readonly API = 'https://crudcrud.com/api/08081ac23b4942d5a392c20c8d9b8fe
 
   addCity(city:string): Observable<City> {
     const body = {name: city}
-   return this.http.post<City>(this.API, body);
+  return this.http.post<City>(this.API, body);
   }
 
   getCities(): Observable<City[]> {
 
     return this.http.get<City[]>(this.API);
+
 
   }
 
