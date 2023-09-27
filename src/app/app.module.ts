@@ -15,7 +15,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { UserComponent } from './users/user/user.component';
 import { DetailsComponent } from './users/details/details.component';
 import { ListsComponent } from './users/lists/lists.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { SpinnerInterceptor } from './shared/spinner/spinner.interceptor';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import {HttpClientModule} from '@angular/common/http';
     NavbarComponent,
     UserComponent,
     DetailsComponent,
-    ListsComponent
+    ListsComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,9 @@ import {HttpClientModule} from '@angular/common/http';
 
 
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:SpinnerInterceptor, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

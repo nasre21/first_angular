@@ -12,7 +12,7 @@ export interface City {
   providedIn: 'root'
 })
 export class DataService {
-private readonly API = 'https://crudcrud.com/api/08081ac23b4942d5a392c20c8d9b8fe3/cities';
+private readonly API = 'https://crudcrud.com/api/1cc189331e744c07b31a276bcb11e239/cities';
   constructor(private readonly http: HttpClient) {
 
 
