@@ -14,13 +14,26 @@
       <input type="text" class="form-control" placeholder="Filter...." [(ngModel)]="critertia">
 
     </div>
+    <app-card>
+     <div card-header> Soy header</div>
+     <div card-body> Soy body</div>
+    </app-card>
+
+    <app-card>
+      Soy header 2
+    </app-card>
+
+    <app-card>
+      Soy header 3
+    </app-card>
 
 
     <div class="col-md-8">
 
-    <ul>
+      <!-- *ngIf="cities.length > 1 -->
+      <ng-container>
         <app-cities (cityDeleteEvent)="onDeleteCity($event)" *ngFor="let city of (cities | filter:critertia)"  (cityClickEvent)="onCityClicked($event)" [city]="city" [selection]="selection"></app-cities>
-    </ul>
+      </ng-container>
 
     <input type="text" (keypress)="onSearch()">
 
@@ -29,7 +42,7 @@
     <p> {{'999' |currency}}</p>
     <p> {{'999' |currency:'EUR'}}</p>
 
-    <div class="col-md-4">
+    <ng-container class="col-md-4">
       <div *ngIf="selection?.name">
         <p>your city is: {{ selection?.name }}</p>
 
@@ -39,8 +52,12 @@
           [label]="'Clear your selection'"
         ></app-button>
       </div>
-    </div>
+    </ng-container>
   </div>
+
+  <ng-template #templateEmpty>
+    We dont have cities yet
+  </ng-template>
 </div>
 
 <!-- <p>{{ title }} en domini code en angular</p>
@@ -71,6 +88,8 @@
       </ul> -->
 
 <hr>
+
+
 <div class="container">
 
   <div class="row">
